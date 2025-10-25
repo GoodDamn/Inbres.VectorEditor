@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 
 namespace VectorEditor;
 
-public partial class App
+public partial class VEApp
 : Application {
     
     public override void Initialize() {
@@ -14,7 +14,7 @@ public partial class App
     public override void OnFrameworkInitializationCompleted() {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+            desktop.MainWindow = new VEWindowMain();
         }
 
         base.OnFrameworkInitializationCompleted();

@@ -3,9 +3,9 @@ using Avalonia.Controls;
 
 namespace VectorEditor;
 
-public partial class MainWindow
+public partial class VEWindowMain
 : Window {
-    public MainWindow()
+    public VEWindowMain()
     {
         InitializeComponent();
     }
