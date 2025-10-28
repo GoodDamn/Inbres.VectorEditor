@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="xml\VEApp.axaml" />
+      <AdditionalFiles Include="appxaml\VEApp.axaml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -29,8 +29,13 @@
         <DependentUpon>VEApp.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="xml\VEWindowMain.axaml.cs">
+      <Compile Update="window\VEWindowMain.axaml.cs">
         <SubType>Code</SubType>
+        <DependentUpon>VEWindowMain.axaml</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\core\core.csproj" />
     </ItemGroup>
 </Project>
