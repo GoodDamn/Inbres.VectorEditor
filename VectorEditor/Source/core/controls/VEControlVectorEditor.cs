@@ -1,25 +1,15 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using core.render;
 using SkiaSharp;
 
 namespace core.controls;
 
 public class VEControlVectorEditor
-: Control
-{
+: Control {
 
-    private readonly Pen _pen = new Pen(
-        0xffff0000
-    ) {
-        LineCap = PenLineCap.Round,
-        LineJoin = PenLineJoin.Round
-    };
-
-    public VEControlVectorEditor() {
-        
-    }
-    
+    public VESkeleton2DRender skeletonRender { get; set; }
     
     public override void Render(
         DrawingContext context
@@ -28,10 +18,8 @@ public class VEControlVectorEditor
             context
         );
         
-        context.DrawLine(
-            _pen,
-            new Point(0,0),
-            new Point(50,50)
+        skeletonRender.render(
+            context
         );
     }
 }
