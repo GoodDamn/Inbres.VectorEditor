@@ -7,6 +7,9 @@ public partial class VEWindowMain
 : Window {
     public VEWindowMain()
     {
-        InitializeComponent();
+        this.Content = new Label {
+            Content = "bbbb",
+            FontSize = 72
+        };
     }
 }

@@ -21,17 +21,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="app\xml\VEApp.axaml" />
-      <AdditionalFiles Include="app\xml\VEWindowMain.axaml" />
+      <AdditionalFiles Include="xml\VEApp.axaml" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="xml\VEApp.axaml.cs">
-        <DependentUpon>App.axaml</DependentUpon>
+        <DependentUpon>VEApp.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
       <Compile Update="xml\VEWindowMain.axaml.cs">
-        <DependentUpon>VEWindowMain.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>

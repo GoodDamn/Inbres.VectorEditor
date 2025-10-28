@@ -14,7 +14,9 @@ public partial class VEApp
     public override void OnFrameworkInitializationCompleted() {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new VEWindowMain();
+            desktop.MainWindow = new VEWindowMain {
+                Title = "Vector Editor"
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
