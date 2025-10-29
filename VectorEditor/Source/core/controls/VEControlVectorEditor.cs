@@ -9,7 +9,7 @@ namespace core.controls;
 public class VEControlVectorEditor
 : Control {
 
-    public VESkeleton2DRender skeletonRender { get; set; }
+    public VESkeleton2DRender? skeletonRender { get; set; }
     
     public override void Render(
         DrawingContext context
@@ -18,7 +18,7 @@ public class VEControlVectorEditor
             context
         );
         
-        skeletonRender.render(
+        skeletonRender?.render(
             context
         );
     }
