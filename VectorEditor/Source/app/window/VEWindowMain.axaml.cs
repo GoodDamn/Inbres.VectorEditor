@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using core;
 using core.controls;
 using core.render;
+using core.viewModels;
 
 namespace VectorEditor;
 
@@ -11,15 +12,13 @@ public partial class VEWindowMain
 : Window {
     public VEWindowMain()
     {
-        var skeleton = new VESkeleton2D();
+        VEViewModelEditor viewModel = new();
         Content = new VEControlVectorEditor {
-            skeletonRender = new VESkeleton2DRender(
-                skeleton
-            )
+            skeletonRender = viewModel.skeletonRender
         };
 
         for (int i = 0; i < 16; i++) {
-            skeleton.points.AddLast(
+            viewModel.addPoint(
                 new Point(i * 75, i * 75)
             );
         }
