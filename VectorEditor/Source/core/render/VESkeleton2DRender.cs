@@ -16,12 +16,12 @@ public class VESkeleton2DRender(
         DrawingContext context
     ) {
         foreach (
-            Point point in skeleton.points
+            VEPoint point in skeleton.points
         ) {
             context.DrawEllipse(
                 null,
                 _pen,
-                point,
+                new Point(point.x, point.y),
                 50,
                 50
             );

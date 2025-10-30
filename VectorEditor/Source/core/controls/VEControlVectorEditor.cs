@@ -38,6 +38,7 @@ public class VEControlVectorEditor
         pointer?.onPointerDown(
             e.GetPosition(this)
         );
+        InvalidateVisual();
     }
 
     protected override void OnPointerReleased(

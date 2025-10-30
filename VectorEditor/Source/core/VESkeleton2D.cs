@@ -6,5 +6,5 @@ using core.models;
 namespace core;
 
 public record VESkeleton2D {
-    public readonly LinkedList<Point> points = new();
+    public readonly LinkedList<VEPoint> points = new();
 }

@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Input;
+using Avalonia.Skia;
 using core.interfaces;
 using core.models;
 
@@ -29,22 +30,15 @@ public class VEPointerableImpl(
             x = position.X,
             y = position.Y,
         };
+        
+        skeleton.points.AddLast(
+            _currentPoint
+        );
     }
 
     public void onPointerUp(
         Point position
     ) {
-        if (_currentPoint == null) {
-            return;
-        }
-        
-        skeleton.points.AddLast(
-            new Point(
-                _currentPoint.x,
-                _currentPoint.y
-            )
-        );
-        
         _currentPoint = null;
     }
 }
