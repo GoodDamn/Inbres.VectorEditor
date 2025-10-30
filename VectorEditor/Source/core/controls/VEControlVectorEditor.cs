@@ -1,6 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using core.interfaces;
 using core.render;
@@ -9,11 +11,15 @@ using SkiaSharp;
 namespace core.controls;
 
 public class VEControlVectorEditor
-: Control {
+: UserControl {
 
     public VEIRenderable? skeletonRender { get; set; }
 
     public VEIPointerable? pointer { get; set; }
+
+    public VEControlVectorEditor() {
+        Background = new SolidColorBrush(Colors.Transparent);
+    }
     
     protected override void OnPointerMoved(
         PointerEventArgs e
@@ -22,6 +28,7 @@ public class VEControlVectorEditor
         pointer?.onPointerMove(
             e.GetPosition(this)
         );
+        InvalidateVisual();
     }
 
     protected override void OnPointerPressed(
@@ -40,6 +47,7 @@ public class VEControlVectorEditor
         pointer?.onPointerUp(
             e.GetPosition(this)
         );
+        InvalidateVisual();
     }
 
     public override void Render(
