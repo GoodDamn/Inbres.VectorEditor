@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Media;
 using core.interfaces;
+using core.models;
 
 namespace core.render;
 
