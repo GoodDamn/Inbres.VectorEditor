@@ -1,17 +1,18 @@
+using Avalonia;
 using Avalonia.Input;
 
 namespace core.interfaces;
 
 public interface VEIPointerable {
     void onPointerMove(
-        PointerEventArgs e
+        Point position
     );
 
     void onPointerDown(
-        PointerPressedEventArgs e
+        Point position
     );
 
     void onPointerUp(
-        PointerReleasedEventArgs e
+        Point position
     );
 }

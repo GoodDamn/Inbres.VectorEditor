@@ -19,9 +19,7 @@ public class VEViewModelEditor {
     public void addPoint(
         Point point
     ) {
-        _skeleton.points.AddLast(
-            point
-        );
+        
     }
     
 }

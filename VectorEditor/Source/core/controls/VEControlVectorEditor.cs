@@ -19,21 +19,27 @@ public class VEControlVectorEditor
         PointerEventArgs e
     ) {
         base.OnPointerMoved(e);
-        pointer?.onPointerMove(e);
+        pointer?.onPointerMove(
+            e.GetPosition(this)
+        );
     }
 
     protected override void OnPointerPressed(
         PointerPressedEventArgs e
     ) {
         base.OnPointerPressed(e);
-        pointer?.onPointerDown(e);
+        pointer?.onPointerDown(
+            e.GetPosition(this)
+        );
     }
 
     protected override void OnPointerReleased(
         PointerReleasedEventArgs e
     ) {
         base.OnPointerReleased(e);
-        pointer?.onPointerUp(e);
+        pointer?.onPointerUp(
+            e.GetPosition(this)
+        );
     }
 
     public override void Render(
