@@ -26,6 +26,19 @@ public class VEPointerableImpl(
     public void onPointerDown(
         Point position
     ) {
+        // Find existing point to edit it
+        // Yea, there is no BSP algo and Z-fight check
+        foreach (
+            VEPoint point in skeleton.points
+        ) {
+            double x = point.x - position.X;
+            double y = point.y - position.Y;
+            if (Math.Sqrt(x * x + y * y) < 15) {
+                _currentPoint = point;
+                return;
+            }
+        }
+        
         _currentPoint = new VEPoint {
             x = position.X,
             y = position.Y,
