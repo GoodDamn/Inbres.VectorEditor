@@ -16,16 +16,20 @@ public class VEViewModelEditorImpl
     public VEViewModelEditorImpl() {
         _skeleton = new VESkeleton2D();
 
+        double radius = 15;
+        
         skeletonRender = new VESkeleton2DRender(
             new Pen(0xff00ff00),
             _skeleton
         ) {
-            radiusX = 15,
-            radiusY = 15
+            radiusX = radius,
+            radiusY = radius
         };
-        
+
         pointer = new VEPointerableImpl(
             _skeleton
-        );
+        ) {
+            radius = radius
+        };
     }
 }

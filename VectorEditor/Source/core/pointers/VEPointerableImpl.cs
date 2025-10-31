@@ -12,6 +12,8 @@ public class VEPointerableImpl(
 
     private VEPoint? _currentPoint;
     
+    public double radius { get; set; }
+    
     public void onPointerMove(
         Point position
     ) {
@@ -33,7 +35,7 @@ public class VEPointerableImpl(
         ) {
             double x = point.x - position.X;
             double y = point.y - position.Y;
-            if (Math.Sqrt(x * x + y * y) < 15) {
+            if (Math.Sqrt(x * x + y * y) < radius) {
                 _currentPoint = point;
                 return;
             }
