@@ -13,19 +13,19 @@ namespace core.controls;
 public class VEControlVectorEditor
 : UserControl {
 
-    public VEIRenderable? skeletonRender { get; set; }
-
-    public VEIPointerable? pointer { get; set; }
-
-    public VEControlVectorEditor() {
+    private readonly VEIViewModelEditor _editor;
+    public VEControlVectorEditor(
+        VEIViewModelEditor editor
+    ) {
+        _editor = editor;
         Background = new SolidColorBrush(Colors.Transparent);
     }
-    
+
     protected override void OnPointerMoved(
         PointerEventArgs e
     ) {
         base.OnPointerMoved(e);
-        pointer?.onPointerMove(
+        _editor.pointer?.onPointerMove(
             e.GetPosition(this)
         );
         InvalidateVisual();
@@ -35,7 +35,7 @@ public class VEControlVectorEditor
         PointerPressedEventArgs e
     ) {
         base.OnPointerPressed(e);
-        pointer?.onPointerDown(
+        _editor.pointer?.onPointerDown(
             e.GetPosition(this)
         );
         InvalidateVisual();
@@ -45,7 +45,7 @@ public class VEControlVectorEditor
         PointerReleasedEventArgs e
     ) {
         base.OnPointerReleased(e);
-        pointer?.onPointerUp(
+        _editor.pointer?.onPointerUp(
             e.GetPosition(this)
         );
         InvalidateVisual();
@@ -58,7 +58,7 @@ public class VEControlVectorEditor
             context
         );
         
-        skeletonRender?.render(
+        _editor.skeletonRender?.render(
             context
         );
     }
