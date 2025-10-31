@@ -6,18 +6,17 @@ using core.render;
 
 namespace core.viewModels;
 
-public class VEViewModelEditor {
+public class VEViewModelEditor
+: VEIViewModelEditor {
     
     private readonly VESkeleton2D _skeleton;
-
-    public VESkeleton2DRender _skeletonRender { get; }
-    
+    public VESkeleton2DRender? skeletonRender { get; }
     public VEIPointerable pointer { get; }
 
     public VEViewModelEditor() {
         _skeleton = new VESkeleton2D();
 
-        _skeletonRender = new VESkeleton2DRender(
+        skeletonRender = new VESkeleton2DRender(
             new Pen(0xff00ff00),
             _skeleton
         ) {
