@@ -11,7 +11,7 @@ namespace VectorEditor;
 public partial class VEWindowMain
 : Window {
     public VEWindowMain() {
-        VEViewModelEditor viewModel = new();
+        VEViewModelEditorImpl viewModel = new();
         Content = new VEControlVectorEditor {
             skeletonRender = viewModel._skeletonRender,
             pointer = viewModel.pointer
