@@ -11,7 +11,7 @@ public class VEViewModelEditorImpl
     
     private readonly VESkeleton2D _skeleton;
     public VESkeleton2DRender? skeletonRender { get; }
-    public VEIPointerable pointer { get; }
+    public VEIPointerable? pointer { get; }
 
     public VEViewModelEditorImpl() {
         _skeleton = new VESkeleton2D();

@@ -12,9 +12,8 @@ public partial class VEWindowMain
 : Window {
     public VEWindowMain() {
         VEViewModelEditorImpl viewModel = new();
-        Content = new VEControlVectorEditor {
-            skeletonRender = viewModel._skeletonRender,
-            pointer = viewModel.pointer
-        };
+        Content = new VEControlVectorEditor(
+            viewModel
+        );
     }
 }
