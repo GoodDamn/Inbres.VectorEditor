@@ -9,6 +9,9 @@ public class VESkeleton2DRender(
     Pen pen,
     VESkeleton2D skeleton
 ): VEIRenderable {
+    public double radiusX { private get; set; }
+    public double radiusY { private get; set; }
+
     public void render(
         DrawingContext context
     ) {
@@ -19,8 +22,8 @@ public class VESkeleton2DRender(
                 null,
                 pen,
                 new Point(point.x, point.y),
-                50,
-                50
+                radiusX,
+                radiusY
             );
         }
     }

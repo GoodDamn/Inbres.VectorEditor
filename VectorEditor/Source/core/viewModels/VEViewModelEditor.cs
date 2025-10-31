@@ -20,7 +20,10 @@ public class VEViewModelEditor {
         _skeletonRender = new VESkeleton2DRender(
             new Pen(0xff00ff00),
             _skeleton
-        );
+        ) {
+            radiusX = 15,
+            radiusY = 15
+        };
         
         pointer = new VEPointerableImpl(
             _skeleton
