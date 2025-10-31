@@ -6,12 +6,9 @@ using core.models;
 namespace core.render;
 
 public class VESkeleton2DRender(
+    Pen pen,
     VESkeleton2D skeleton
 ): VEIRenderable {
-    private readonly Pen _pen = new Pen(
-        0xffff0000
-    );
-    
     public void render(
         DrawingContext context
     ) {
@@ -20,7 +17,7 @@ public class VESkeleton2DRender(
         ) {
             context.DrawEllipse(
                 null,
-                _pen,
+                pen,
                 new Point(point.x, point.y),
                 50,
                 50

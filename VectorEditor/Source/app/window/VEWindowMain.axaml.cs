@@ -13,7 +13,7 @@ public partial class VEWindowMain
     public VEWindowMain() {
         VEViewModelEditor viewModel = new();
         Content = new VEControlVectorEditor {
-            skeletonRender = viewModel.skeletonRender,
+            skeletonRender = viewModel._skeletonRender,
             pointer = viewModel.pointer
         };
     }
