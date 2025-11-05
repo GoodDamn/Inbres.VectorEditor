@@ -41,8 +41,8 @@ public class VEPointerableImpl(
             double x = point.x - position.X;
             double y = point.y - position.Y;
             if (Math.Sqrt(x * x + y * y) < radius) {
-                _currentPoint = point;
-                return;
+                _pointFrom = point;
+                break;
             }
         }
 
@@ -55,8 +55,6 @@ public class VEPointerableImpl(
             skeleton.points.AddLast(
                 _pointFrom
             );
-        } else {
-            _pointFrom = _currentPoint;
         }
         
         _currentPoint = new VEPoint {
@@ -80,6 +78,7 @@ public class VEPointerableImpl(
     public void onPointerUp(
         Point position
     ) {
+        _pointFrom = _currentPoint;
         _currentPoint = null;
     }
 }
