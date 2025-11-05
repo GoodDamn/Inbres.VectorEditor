@@ -1,8 +1,10 @@
 using Avalonia;
 using Avalonia.Media;
 using core.interfaces;
+using core.models;
 using core.pointers;
 using core.render;
+using core.shapes;
 
 namespace core.viewModels;
 
@@ -27,9 +29,11 @@ public class VEViewModelEditorImpl
         };
 
         pointer = new VEPointerableImpl(
-            _skeleton
+            _skeleton,
+            new VEShapes()
         ) {
-            radius = radius
+            radius = radius,
+            shape = new VEShapeLine()
         };
     }
 }
