@@ -3,14 +3,19 @@ using Avalonia.Input;
 using Avalonia.Skia;
 using core.interfaces;
 using core.models;
+using core.shapes;
 
 namespace core.pointers;
 
 public class VEPointerableImpl(
-    VESkeleton2D skeleton
+    VESkeleton2D skeleton,
+    VEShapes shapes
 ): VEIPointerable {
 
     private VEPoint? _currentPoint;
+    private VEPoint? _pointFrom;
+
+    public VEIShape shape { get; set; }
     
     public double radius { get; set; }
     
@@ -40,6 +45,19 @@ public class VEPointerableImpl(
                 return;
             }
         }
+
+        if (_pointFrom == null) {
+            _pointFrom = new VEPoint {
+                x = position.X,
+                y = position.Y
+            };
+            
+            skeleton.points.AddLast(
+                _pointFrom
+            );
+        } else {
+            _pointFrom = _currentPoint;
+        }
         
         _currentPoint = new VEPoint {
             x = position.X,
@@ -49,6 +67,14 @@ public class VEPointerableImpl(
         skeleton.points.AddLast(
             _currentPoint
         );
+
+        shapes.shapes.AddLast(
+            shape.create(
+               _pointFrom,
+               _currentPoint
+            )
+        );
+
     }
 
     public void onPointerUp(
