@@ -12,12 +12,21 @@ public class VEViewModelEditorImpl
 : VEIViewModelEditor {
     
     private readonly VESkeleton2D _skeleton;
+    private readonly VEShapes _shapes;
     public VESkeleton2DRender? skeletonRender { get; }
+    
+    public VERenderShapes? renderShapes { get; }
+    
     public VEIPointerable? pointer { get; }
 
     public VEViewModelEditorImpl() {
         _skeleton = new VESkeleton2D();
+        _shapes = new VEShapes();
 
+        renderShapes = new VERenderShapes(
+            _shapes
+        );
+        
         double radius = 15;
         
         skeletonRender = new VESkeleton2DRender(
@@ -30,7 +39,7 @@ public class VEViewModelEditorImpl
 
         pointer = new VEPointerableImpl(
             _skeleton,
-            new VEShapes()
+            _shapes
         ) {
             radius = radius,
             shape = new VEShapeLine()
