@@ -58,6 +58,10 @@ public class VEControlVectorEditor
             context
         );
         
+        _editor.renderShapes?.render(
+            context
+        );
+        
         _editor.skeletonRender?.render(
             context
         );
